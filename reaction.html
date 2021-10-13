@@ -14,9 +14,12 @@
   <h2>Indu Chinthakuntla reaction
     timer</h2>
 
+  <div id="target" >Your time</div>
+  <div id="countdown">Count</div>
+
   <button type="button"
   class="btn btn-primary"
-  onclick="recordReact()">
+  onclick="startTime()">
   Start Timer</button>
 
   <button type="button"
@@ -25,8 +28,7 @@
   React Now</button>
   
   
-  <div id="target" >Your time</div>
-  <div id="countdown">Count</div>
+  
   
   <script> 
   function buttonPress1() {
@@ -45,6 +47,26 @@
   function recordReact(){
     myTime=Date.now()
     console.log(myTime)
+  }
+
+  function startTime(){
+    for(let i=0;i<4;i++){
+        setTimeout(function(){
+            document.getElementById("countdown").innerHTML=i
+        },(3-i)*(1000))
+    
+    }
+    setTimeout(function(){
+        if(myTime==undefined){
+            document.getElementById("target").innerHTML="Too Slow"
+        }
+        else{
+            buttonTime=Date.now()
+            d=buttonTime-myTime
+            document.getElementById("target").innerHTML="Time was "+ d +" ms"
+
+        }
+    },3000)
   }
 
   </script>
