@@ -31,18 +31,7 @@
   
   
   <script> 
-  function buttonPress1() {
-    setTimeout(function(){
-      document.getElementById('target').style.color = "red"
-    }, 3000)
-  }
-
-  function buttonPress2() {
-    setTimeout(()=>{
-      document.getElementById('target').style.color = "red"
-    }, 3000)
-  }
-
+  let l=3;
   var myTime=undefined
   function recordReact(){
     myTime=Date.now()
@@ -50,10 +39,10 @@
   }
 
   function startTime(){
-    for(let i=0;i<4;i++){
+    for(let i=0;i<=l;i++){
         setTimeout(function(){
             document.getElementById("countdown").innerHTML=i
-        },(3-i)*(1000))
+        },(l-i)*(1000))
     
     }
     setTimeout(function(){
@@ -67,6 +56,7 @@
 
         }
     },3000)
+    l=Math.round(Math.random() * (10 - 2) + 0);
   }
 
   </script>
